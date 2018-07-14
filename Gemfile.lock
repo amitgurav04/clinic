@@ -45,7 +45,6 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap_form (2.7.0)
     builder (3.2.3)
     byebug (10.0.2)
     coffee-rails (4.1.1)
@@ -64,6 +63,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -173,10 +173,10 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
-  bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  devise-bootstrap-views
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
