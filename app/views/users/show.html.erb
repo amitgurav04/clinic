@@ -11,7 +11,7 @@
   <dd><%= @user.date_of_birth %></dd>
   <p></p>
   <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
-  <dd><%= @user.gender %></dd>
+  <dd><%= @user.gender ? 'Male' : 'Female' %></dd>
   <p></p>
   <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
   <dd><%= @user.mobile_number %></dd>

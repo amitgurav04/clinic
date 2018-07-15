@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_many :user_consent_categories, dependent: :delete_all
   has_many :consent_categories, :through => :user_consent_categories
 
-  validates :name, :date_of_birth, :mobile_number, :gender, :presence => true
+  validates :name, :date_of_birth, :mobile_number, :email, :presence => true
+  validates :email, email: true
+  validates :mobile_number, phone: true
 
   def registration_consents=(consents)
     @consents = consents
