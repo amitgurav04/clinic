@@ -44,6 +44,19 @@ This is Rails application for GDPR integration in clinic application. You can de
     ```
     $ rake db:seed
     ```
+* Set Development ENVs for action mailer in config/environments/development.rb 
+    ``` 
+      config.action_mailer.smtp_settings = {
+          user_name:      ENV['SENDMAIL_USERNAME'],
+          password:       ENV['SENDMAIL_PASSWORD'],
+          domain:         ENV['MAIL_HOST'],
+          address:       'smtp.gmail.com',
+          port:          '587',
+          authentication: :plain,
+          enable_starttls_auto: true
+      }
+
+    ```
 * Start server
     ```
     $ rails s
@@ -71,6 +84,21 @@ Run following commands from url_shortener directory
     $ git push heroku master
     ```
     After successful push you can migrate database.
+* Set Production ENVs for action mailer in heroku app settings. Refer config/environments/production.rb 
+    ``` 
+      # Configure action mailer
+      config.action_mailer.default_url_options = {host: ENV['HOST_NAME']}
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings = {
+          user_name:      ENV['SENDMAIL_USERNAME'],
+          password:       ENV['SENDMAIL_PASSWORD'],
+          domain:         ENV['MAIL_HOST'],
+          address:       'smtp.gmail.com',
+          port:          '587',
+          authentication: :plain,
+          enable_starttls_auto: true
+      }
+    ```
 * Migrate database
     ```
     $ heroku run rake db:migrate
