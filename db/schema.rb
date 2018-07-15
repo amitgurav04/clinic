@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713222542) do
+ActiveRecord::Schema.define(version: 20180714163721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consent_categories", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "compulsory",  default: true
+    t.text     "description"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "consents", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "consent_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "consents", ["consent_category_id"], name: "index_consents_on_consent_category_id", using: :btree
+
+  create_table "user_consent_categories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "consent_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "user_consent_categories", ["consent_category_id"], name: "index_user_consent_categories_on_consent_category_id", using: :btree
+  add_index "user_consent_categories", ["user_id"], name: "index_user_consent_categories_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",   null: false
@@ -38,4 +65,7 @@ ActiveRecord::Schema.define(version: 20180713222542) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "consents", "consent_categories"
+  add_foreign_key "user_consent_categories", "consent_categories"
+  add_foreign_key "user_consent_categories", "users"
 end

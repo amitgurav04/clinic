@@ -36,6 +36,9 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      <% consents_checks.each do |checkbox| %>
+        <%= checkbox.html_safe %>
+      <% end %>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>
