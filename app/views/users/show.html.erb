@@ -18,5 +18,11 @@
   <p></p>
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @user.email %></dd>
+  <p></p>
+  <p></p>
+  <dt><strong>Agreed Consents:</strong>:</dt>
+  <% @agreed_consents.each_with_index do |consent, index| %>
+    <dd><%= index+1 %>. <%= consent %></dd>
+<% end %>
 </dl>
 
