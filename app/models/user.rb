@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable #, :confirmable
 
 
-
   after_create :add_user_consent_categories
   has_many :user_consent_categories, dependent: :delete_all
   has_many :consent_categories, :through => :user_consent_categories
 
   validates :name, :date_of_birth, :mobile_number, :gender, :presence => true
+
   def registration_consents=(consents)
     @consents = consents
   end

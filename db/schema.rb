@@ -17,50 +17,50 @@ ActiveRecord::Schema.define(version: 20180714192829) do
   enable_extension "plpgsql"
 
   create_table "consent_categories", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "compulsory",  default: true
-    t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string "name"
+    t.boolean "compulsory", default: true
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "consents", force: :cascade do |t|
-    t.text     "description"
-    t.integer  "consent_category_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.text "description"
+    t.integer "consent_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "consents", ["consent_category_id"], name: "index_consents_on_consent_category_id", using: :btree
 
   create_table "user_consent_categories", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "consent_category_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer "user_id"
+    t.integer "consent_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "user_consent_categories", ["consent_category_id"], name: "index_user_consent_categories_on_consent_category_id", using: :btree
   add_index "user_consent_categories", ["user_id"], name: "index_user_consent_categories_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,    null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.string   "name"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "name"
     t.datetime "date_of_birth"
-    t.boolean  "gender",                 default: true
-    t.string   "mobile_number"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "confirmation_token"
+    t.boolean "gender", default: true
+    t.string "mobile_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
   end
