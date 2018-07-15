@@ -13,3 +13,4 @@
 /tmp
 .idea/
 public/assets/
+config/environments/development.rb

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  authenticated :user do
+    root :to => 'welcome#index', :as => "authenticated_root"
+  end
+  root 'welcome#static'
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
