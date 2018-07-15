@@ -30,6 +30,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'rails_12factor'
 gem 'pry'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

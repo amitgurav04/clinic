@@ -1,0 +1,22 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1>My Profile</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user.name %></dd>
+  <p></p>
+  <dt><strong><%= model_class.human_attribute_name(:date_of_birth) %>:</strong></dt>
+  <dd><%= @user.date_of_birth %></dd>
+  <p></p>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @user.gender %></dd>
+  <p></p>
+  <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
+  <dd><%= @user.mobile_number %></dd>
+  <p></p>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
