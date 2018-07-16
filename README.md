@@ -1,7 +1,7 @@
 ## Clinic app with GDPR consents
 
 ### Overview
-This is Rails application for GDPR integration in clinic application. You can deploy this app on internet. 
+This is Rails application for GDPR implementation in clinic application. You can deploy this app on internet. 
 1. User/patient can sign-up/register on clinic site. In registration form he will be asked for consents regarding uses of his personal information and contact details.
 
 2. User/patient can edit his profile. To Edit profile:
